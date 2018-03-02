@@ -1,0 +1,26 @@
+<h1>Classrooms Register</h1>
+
+<div>
+
+  <table>
+    <th>Pupils</th>
+    <%= form_for(@actual, :url => actuals_path, :method => 'post') do |f| %>
+<% @p.each do |actual|%>
+<% @x = actual.pupil_id %>
+<tr>
+  <td><%= Pupil.find(@x).first_name %>  </td>
+  <td><%= label_tag "actuals__attendance", "Attendance" %></td>
+  <td><%= f.select :attendance, options_for_select([["Select One", ""], "Present", "Absent"]) %></td>
+  <%=f.hidden_field :pupil_id, value: @id%>
+  <%=f.hidden_field :date, value: Date.today%>
+
+</tr>
+  <%end%>
+  <%end%>
+  </table>
+  <div>
+      <%= submit_tag %>
+    </div>
+
+
+  </div>

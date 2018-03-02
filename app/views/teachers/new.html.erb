@@ -1,0 +1,38 @@
+
+<div>
+  <h2>Create New Teacher</h2>
+<%= link_to("<< Back to List", teachers_path) %>
+
+  <%= form_for(@teacher, :url => teachers_path, :method => 'post') do |f| %>
+
+    <table >
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:first_name) %></td>
+      </tr>
+      <tr>
+        <th>Surname</th>
+        <td><%= f.text_field(:last_name) %></td>
+      </tr>
+
+        <th>Classroom</th>
+        <td><%= collection_select(:teacher, :classroom_id, Classroom.all, :id, :classroom_name, {}, {:multiple => false})%></td>
+      </tr>
+      <tr>
+        <th>Username</th>
+        <td><%= f.text_field(:username) %></td>
+      </tr>
+
+      <tr>
+        <th>Password</th>
+        <td><%= f.text_field(:password) %></td>
+      </tr>
+
+    </table>
+
+    <div >
+      <%= f.submit("Create Teacher") %>
+    </div>
+
+  <% end %>
+</div>

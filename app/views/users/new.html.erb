@@ -1,0 +1,40 @@
+<div>
+  <h2>Create New User </h2>
+
+  <%= form_for(@user,:url => users_path, :method => 'post') do |f| %>
+
+    <table >
+
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:first_name) %></td>
+      </tr>
+
+      <tr>
+        <th>Surname</th>
+        <td><%= f.text_field(:last_name) %></td>
+      </tr>
+
+      <tr>
+        <th>Username</th>
+        <td><%= f.text_field(:username) %></td>
+      </tr>
+
+      <tr>
+        <th>password</th>
+        <td><%= f.text_field(:password) %></td>
+      </tr>
+
+      <tr>
+        <th>Role</th>
+        <td><%= f.text_field(:role) %></td>
+      </tr>
+
+    </table>
+
+    <div >
+      <%= f.submit("Create User") %>
+    </div>
+
+  <% end %>
+</div>

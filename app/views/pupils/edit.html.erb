@@ -1,0 +1,52 @@
+<%= link_to("<< Back to List", pupils_path ) %>
+
+<div>
+  <h2>Update Pupil </h2>
+
+  <%= form_for(@pupil, :url => pupil_path(@pupil), :method => 'patch') do |f| %>
+
+    <table>
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:first_name) %></td>
+      </tr>
+      <tr>
+        <th>Surname</th>
+        <td><%= f.text_field(:last_name) %></td>
+      </tr>
+      <tr>
+        <th>Classroom</th>
+        <td><%= f.text_field(:classroom_id) %></td>
+      </tr>
+      <tr>
+        <th>is_active</th>
+        <td><%= f.text_field(:is_active) %></td>
+      </tr>
+      <tr>
+        <th>Monday</th>
+      <td><%= f.select :monday, options_for_select([["Select One", ""], "Am", "Pm", "FT"]) %></td>
+      </tr>
+      <tr>
+        <th>Tuesday</th>
+      <td><%= f.select :tuesday, options_for_select([["Select One", ""], "Am", "Pm", "FT"]) %></td>
+      </tr>
+      <tr>
+        <th>Wednesday</th>
+      <td><%= f.select :wednesday, options_for_select([["Select One", ""], "Am", "Pm", "FT"]) %></td>
+      </tr>
+      <tr>
+        <th>Thursday</th>
+      <td><%= f.select :thursday, options_for_select([["Select One", ""], "Am", "Pm", "FT"]) %></td>
+      </tr>
+      <tr>
+        <th>Friday</th>
+        <td><%= f.select :friday, options_for_select([["Select One", ""], "Am", "Pm", "FT"]) %></td>
+      </tr>
+    </table>
+
+    <div >
+      <%= f.submit("Update Pupil") %>
+    </div>
+
+  <% end %>
+</div>

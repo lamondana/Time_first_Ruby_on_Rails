@@ -1,0 +1,42 @@
+<h1>Pupils</h1>
+
+
+<%= link_to("Add a new pupil", new_pupil_path)%>
+
+
+<table style="width:65%">
+
+  <tr>
+    <th>First-name</th>
+    <th>Last-name</th>
+    <th>classroom</th>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Active?</th>
+  </tr>
+  <% @pupils.each do |pupil| %>
+  <tr>
+    <td><%= pupil.first_name %></td>
+    <td><%= pupil.last_name %></td>
+    <td><%= @id = pupil.classroom_id
+    @classroomname = Classroom.find(@id).classroom_name
+%></td>
+    <td><%= pupil.monday%></td>
+    <td><%= pupil.tuesday %></td>
+    <td><%= pupil.wednesday %></td>
+    <td><%= pupil.thursday %></td>
+    <td><%= pupil.friday %></td>
+    <td><%= pupil.is_active %></td>
+
+    <td>
+      <%= link_to("Show", pupil_path(pupil), :class => 'action show') %>
+      <%= link_to("Edit", edit_pupil_path(pupil), :class => 'action edit') %>
+      <%= link_to("Delete", pupil_path(pupil), :class => 'action delete', :method => :delete) %>
+    </td>
+
+  </tr>
+<%end%>
+</table>

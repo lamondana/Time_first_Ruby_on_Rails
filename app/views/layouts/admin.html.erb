@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TimeFirst</title>
+  <%= stylesheet_link_tag('admin', :media => 'all') %>
+</head>
+<body>
+      <div id = "header">
+          <h2>TimeFirst</h2>
+          <h3><%= Time.now.strftime("%A, %d/%m/%Y") %></h3>
+      </div>
+          <div id='main'>
+          <% if !flash[:notice].blank? %>
+            <div class= 'notice'>
+              <%=flash[:notice]%>
+            </div>
+          <%end%>
+
+
+          <div id='content'>
+          <%= yield %>
+        </div>
+      </div>
+      <div id='footer'>
+        <p>Anananana</p>
+      </div>
+</body>
+</html>

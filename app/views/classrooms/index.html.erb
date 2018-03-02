@@ -1,0 +1,16 @@
+<h1>Classrooms</h1>
+
+<h3><%= Time.now.strftime("%A, %d/%m/%Y") %></h3>
+  <table>
+  <% @classrooms.each do |classroom| %>
+  <tr>
+    <td><%= classroom.classroom_name %></td>
+
+  <td>
+    <%= link_to("Show", classroom_path(classroom), :class => 'action show') %>
+    <%= link_to("Edit", edit_classroom_path(classroom), :class => 'action edit') %>
+    <%= link_to("Delete", classroom_path(classroom), :class => 'action delete', :method => :delete) %>
+  </td>
+</tr>
+<%end%>
+</table>

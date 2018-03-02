@@ -1,0 +1,48 @@
+<h1>Teachers</h1>
+
+
+
+<%= link_to("Add a teacher",'teachers/new')%>
+
+
+
+<table>
+  <% @teachersRobin.each do |pupil| %>
+  <tr>
+    <td><%= pupil.first_name %></td>
+    <td><%= pupil.last_name %></td>
+
+    <%end%>
+</table>
+<table style="width:65%">
+  <tr>
+    <th>Teacher ID</th>
+    <th>First-name</th>
+    <th>Last-name</th>
+    <th>Username</th>
+    <th>Password</th>
+    <th>Classroom</th>
+
+  </tr>
+  <% @teachers.each do |teacher| %>
+  <tr>
+    <td><%= teacher.id %></td>
+    <td><%= teacher.first_name %></td>
+    <td><%= teacher.last_name %></td>
+    <td><%= teacher.username %></td>
+    <td><%= teacher.password%></td>
+    <td><%= @id = teacher.classroom_id
+    @classroomname = Classroom.find(@id).classroom_name
+%></td>
+
+
+
+    <td>
+      <%= link_to("Show", teacher_path(teacher), :class => 'action show') %>
+      <%= link_to("Edit", edit_teacher_path(teacher), :class => 'action edit') %>
+      <%= link_to("Delete", teacher_path(teacher), :class => 'action delete', :method => :delete) %>
+    </td>
+
+  </tr>
+<%end%>
+</table>

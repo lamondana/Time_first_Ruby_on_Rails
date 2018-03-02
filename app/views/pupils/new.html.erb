@@ -1,0 +1,54 @@
+
+<div>
+  <h2>Create New Pupil </h2>
+
+  <% if @pupil.errors.any? %>
+    <ul>
+      <% @pupil.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for(@pupil, :url => pupils_path, :method => 'post') do |f| %>
+
+    <table >
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:first_name) %></td>
+      </tr>
+      <tr>
+        <th>Surname</th>
+        <td><%= f.text_field(:last_name) %></td>
+      </tr>
+      <tr>
+        <th>Classroom</th>
+        <td><%= collection_select(:pupil, :classroom_id, Classroom.all, :id, :classroom_name, {}, {:multiple => false})%></td>
+      </tr>
+      <tr>
+        <th>Monday</th>
+      <td><%= f.select :monday, options_for_select([["Select One", ""], "Am", "Pm", "FT"]) %></td>
+      </tr>
+      <tr>
+        <th>Tuesday</th>
+      <td><%= f.select :tuesday, options_for_select([["Select One", ""], "Am", "Pm", "FT"]) %></td>
+      </tr>
+      <tr>
+        <th>Wednesday</th>
+      <td><%= f.select :wednesday, options_for_select([["Select One", ""], "Am", "Pm", "FT"]) %></td>
+      </tr>
+      <tr>
+        <th>Thursday</th>
+      <td><%= f.select :thursday, options_for_select([["Select One", ""], "Am", "Pm", "FT"]) %></td>
+      </tr>
+      <tr>
+        <th>Friday</th>
+        <td><%= f.select :friday, options_for_select([["Select One", ""], "Am", "Pm", "FT"]) %></td>
+      </tr>
+    </table>
+    <div>
+      <%= f.submit("Create Pupil") %>
+    </div>
+
+  <% end %>
+</div>

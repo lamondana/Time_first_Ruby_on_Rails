@@ -1,0 +1,27 @@
+
+<%= link_to("<< Back to List", pupils_path) %>
+
+<div>
+  <h2>Show Pupil</h2>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <td><%= @pupil.first_name %></td>
+    </tr>
+    <tr>
+      <th>Surname</th>
+      <td><%= @pupil.last_name %></td>
+    </tr>
+    <tr>
+      <th>Active?</th>
+      <td><%= @pupil.is_active %></td>
+    </tr>
+    <tr>
+      <th>Classroom</th>
+      <td><%= @pupil.classroom_id %></td>
+    </tr>
+
+  </table>
+
+</div>

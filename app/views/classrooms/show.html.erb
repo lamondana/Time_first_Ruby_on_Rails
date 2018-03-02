@@ -1,0 +1,31 @@
+<%= link_to("<< Back to Classrooms", classrooms_path) %>
+<br>
+
+<br>
+<h1><%= @classroom.classroom_name%></h1>
+
+<br>
+  <h2> Teacher <br>
+    <%= @teacher.full_name %>
+  </h2>
+
+<div>
+
+<%= form_tag actuals_path do %>
+  <%= hidden_field_tag :date, @date %>
+  <table>
+    <tr>
+      <th>Pupils</th>
+    </tr>
+    <% @pupils.each_with_index do |pupil, index| %>
+      <tr>
+        <td><%= pupil.first_name %> <%= pupil.last_name %></td>
+        <td>
+          <%= select_tag "actuals[#{index}][attendance]", options_for_select([["Select One", ""], "Present", "Absent"]) %>
+          <%= hidden_field_tag "actuals[#{index}][pupil_id]", pupil.id %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= submit_tag %>
+<%end%>
